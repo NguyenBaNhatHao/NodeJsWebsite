@@ -1,13 +1,9 @@
-const config = {
-    user:'sincollmm',
-    password:'zxcZXCV123',
-    server:'SINCOLLMM\SINCOLLMM',
-    database:'SinhvienNodejs',
-    options:{
-        trustedconnection: true,
-        enableArithAort: true,
-        instancename: 'SINCOLLMM'
-    }
-}
+var config = {
+    user: 'sincollmm',
+    password: 'zxcZXCV123',
+    server: 'localhost', 
+    database: 'SinhvienNodejs',
+    trustServerCertificate: true
+};
 
 module.exports = config

@@ -2,11 +2,14 @@ var express = require('express');
 var router = express.Router();
 var Sinhvien  = require('../models/Sinhvien')
 const sql = require('../data/dbConnect')
+
 sql.getStudent().then(resutl => {
   console.log(resutl);
 })
 router.get('/', function(req, res, next) {
-  res.send('add student')
+  sql.getStudent().then(resutl => {
+    res.send(resutl)
+  })
 });
 router.get('/addstudent', function(req, res, next) {
     res.send('Thêm sinh viên'); 
