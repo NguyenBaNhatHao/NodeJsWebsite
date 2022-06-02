@@ -7,15 +7,19 @@ sql.getStudent().then(resutl => {
   console.log(resutl);
 })
 router.get('/', function(req, res, next) {
+  res.render('sinhvien_list')
+});
+router.get('/showstudent', function(req, res, next) {
   sql.getStudent().then(resutl => {
-    res.send(resutl)
+    res.json(resutl)
   })
 });
-router.get('/addstudent', function(req, res, next) {
-    res.send('Thêm sinh viên'); 
-});
-router.post('/store', function(req, res, next) {
-    //nhận dữ liệu từ addnew để thêm record vào db
+router.post('/addstudent', function(req, res, next) {
+  
+  sql.postStudent().then(resutl => {
+    res.json(resutl)
+  })
+    
 });
 router.get('/edit/:id', function(req, res, next) {
   var id = req.params.id;

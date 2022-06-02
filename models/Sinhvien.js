@@ -1,9 +1,8 @@
 class Sinhvien{
-  constructor(Id,Name,PhoneNumber,Email){
+  constructor(Id,Name,MSSV){
     this.Id = Id;
     this.Name = Name;
-    this.PhoneNumber = PhoneNumber;
-    this.Email = Email;
+    this.MSSV = MSSV
   }
 }
 
