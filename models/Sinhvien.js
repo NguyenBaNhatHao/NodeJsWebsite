@@ -6,6 +6,8 @@ class Sinhvien{
   }
 }
 
-module.exports = Sinhvien;
+module.exports = {
+  Sinhvien
+}
 
  

@@ -3,21 +3,27 @@ var router = express.Router();
 var Sinhvien  = require('../models/Sinhvien')
 const sql = require('../data/dbConnect')
 
-sql.getStudent().then(resutl => {
+sql.getStudents().then(resutl => {
   console.log(resutl);
 })
 router.get('/', function(req, res, next) {
   res.render('sinhvien_list')
 });
 router.get('/showstudent', function(req, res, next) {
-  sql.getStudent().then(resutl => {
-    res.json(resutl)
+  sql.getStudents().then(resutl => {
+    res.json(resutl[0])
+  })
+});
+
+router.get('/showstudent/:id', function(req, res, next) {
+  sql.getStudent(req.params.id).then(resutl => {
+    res.json(resutl[0])
   })
 });
 router.post('/addstudent', function(req, res, next) {
-  
-  sql.postStudent().then(resutl => {
-    res.json(resutl)
+    let student = {...req.body}
+    sql.addStudent(student).then(resutl => {
+    res.status(200).json(resutl)
   })
     
 });
